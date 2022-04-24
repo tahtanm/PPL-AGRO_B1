@@ -101,14 +101,26 @@ include '../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                   <a class="waves-effect waves-dark" href="barang/produk.php">
-                      <i class="icon-briefcase"></i><span> Produk</span>
-                     </a>                
-                  </li>
-                  <li class="nav-level"></li>
-                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="datapegawai.php">
                         <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="barang/produk.php">
+                       <i class="icon-briefcase"></i><span> Produk</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -145,24 +157,6 @@ include '../koneksi.php';
                                  <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Nama Lengkap</label>
                                  <div class="col-sm-10">
                                  <input type="text" class="form-control" name="nama_lengkap" required value="<?php echo $data['nama_lengkap'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Tempat Lahir</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="tempat_lahir" required value="<?php echo $data['tempat_lahir'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Tanggal Lahir</label>
-                                 <div class="col-sm-10">
-                                 <input type="date" class="form-control" name="tanggal_lahir" required value="<?php echo $data['tanggal_lahir'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Jenis Kelamin</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="jenis_kelamin" required value="<?php echo $data['jenis_kelamin'] ?>"/>
                                  </div>
                               </div>
                               <div class="form-group row">

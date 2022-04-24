@@ -98,14 +98,26 @@ include('../../koneksi.php');
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="../datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="../datapegawai.php">
-                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -149,10 +161,6 @@ include('../../koneksi.php');
             ?>                  
                <div class="card-block">
                            <form method="POST" enctype="multipart/form-data"  action="proses_edit.php">
-                              <div class="form-group">
-                                  <label>ID Barang</label>
-                                  <input type="text" class="form-control" name="id_barang" value="<?php echo $data['id_barang'];?>"  required="required">
-                              </div>
 						            <div class="form-group"> 
             								<label>Nama Produk</label>
             								<input type="text" class="form-control" name="nama_barang"  value="<?php echo $data['nama_barang'] ?>" required="required">
@@ -160,10 +168,13 @@ include('../../koneksi.php');
         								</div>
                               <div class="form-group">
                                  <label>Ukuran (Kg)</label>
-                                 <input type="number" class="form-control" name="ukuran" value="<?php echo $data['ukuran'];?>"  required="required">
+                                 <select class="form-select" name="ukuran" id="ukuran" style="font-size: 14px;">
+                                       <option value="1">1 Kg</option>
+                                       <option value="5">5 Kg</option>
+                                 </select>
                               </div>
                               <div class="form-group">
-                                 <label>Jumlah (Kg)</label>
+                                 <label>Jumlah</label>
                                  <input type="number" class="form-control" name="jumlah" value="<?php echo $data['jumlah'];?>"  required="required">
                               </div>
                               <div class="form-group">

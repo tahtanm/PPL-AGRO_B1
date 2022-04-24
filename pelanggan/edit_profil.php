@@ -73,7 +73,7 @@ include '../koneksi.php';
                         <?php
                            $no = 1;
                            $sql = $conn->query ("SELECT * FROM pelanggan WHERE username ='$_SESSION[username]'");
-                           while ($data=$sql -> fetch_assoc()) {
+                           while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php }?>
                            <i class=" icofont icofont-simple-down"></i></span>
@@ -97,6 +97,12 @@ include '../koneksi.php';
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="index.php">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -125,7 +131,7 @@ include '../koneksi.php';
             <?php
                 $no = 1;
                 $sql = $conn->query ("SELECT * FROM pelanggan WHERE username ='$_SESSION[username]'");
-                while ($data=$sql -> fetch_assoc()) {
+                while ($data = $sql -> fetch_assoc()) {
             ?>                  
                <div class="card-block">
                            <form method="POST"  action="proses_edit.php">
@@ -134,24 +140,6 @@ include '../koneksi.php';
                                  <div class="col-sm-10">
                                  <input type="text" class="form-control" name="nama_lengkap" required value="<?php echo $data['nama_lengkap'] ?>"/>
                                  <input type="hidden" name="id" autofokus="" required value="<?php echo $data['id'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Tempat Lahir</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="tempat_lahir" required value="<?php echo $data['tempat_lahir'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Tanggal Lahir</label>
-                                 <div class="col-sm-10">
-                                 <input type="date" class="form-control" name="tanggal_lahir" required value="<?php echo $data['tanggal_lahir'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Jenis Kelamin</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="jenis_kelamin" required value="<?php echo $data['jenis_kelamin'] ?>"/>
                                  </div>
                               </div>
                               <div class="form-group row">

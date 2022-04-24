@@ -71,7 +71,7 @@ include '../../koneksi.php';
                         <?php
                            $no = 1;
                            $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
-                           while ($data=$sql -> fetch_assoc()) {
+                           while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
@@ -98,14 +98,26 @@ include '../../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="../datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="../datapegawai.php">
-                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -122,15 +134,14 @@ include '../../koneksi.php';
                </div>
             </div>
 
-			<div class="main-panel">
+			
+         <div class="mt-0 mb-4">
+            <h2 class=" pb-2 text-dark">Data Produk</h2>
+			</div>
+         <div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
 					<a href="tambah_produk.php" class="btn btn-primary" style="margin-bottom: 15px;">+Tambah Data</a>
-					<div class="mt-0 mb-4">
-						<h2 class=" pb-2 text-dark">Data Produk</h2>
-					</div>
-               
-		
 					
 								<!-- Advanced Tables -->
 								<div class="panel panel-default">
@@ -141,10 +152,9 @@ include '../../koneksi.php';
 												<thead>
 													<tr>
                                           <th>No</th>
-														<th>ID Barang</th>
 														<th>Nama Barang</th>
 														<th>Ukuran (Kg)</th>
-														<th>Jumlah (Kg)</th>
+														<th>Jumlah</th>
 														<th>Harga</th>
 														<th>Foto Barang</th>
 														<th>Status Ketersediaan</th>
@@ -160,16 +170,15 @@ include '../../koneksi.php';
                 ?>
 				<tr>
                                     		<td><?php echo $no++?></td>
-                                            <td><?php echo $data['id_barang'];?></td>
-                                            <td><?php echo $data['nama_barang'];?></td>
+                                          <td><?php echo $data['nama_barang'];?></td>
                                     		<td><?php echo $data['ukuran'];?></td>
                                     		<td><?php echo $data['jumlah'];?></td>
                                     		<td>Rp <?php echo $data['harga'];?></td>
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
-                                    		<td><?php echo $data['status'];?></td>
+                                    		<td><?php echo $data['pilihan'];?></td>
                                             <td>
+                                             <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">EDIT</a>
                                     			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">HAPUS</a>
-                                    			<a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">EDIT</a>
                                     		</td>
                                     	</tr>
                                     	<?php  } ?>

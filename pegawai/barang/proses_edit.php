@@ -27,7 +27,7 @@
             if(!$result){
                 die("Query Error: ".mysqli_errno($conn)."-".mysqli_error($conn));
             }else{
-                echo "<script>alert('Data berhasil ditambahkan!');window.location='produk.php';</script>";
+                echo "<script>alert('Data berhasil diubah!');window.location='produk.php';</script>";
             }
             }else{
                 echo "<script>alert('Ekstensi gambar hanya bisa jpg dan png!');window.location='edit_produk.php';</script>";
@@ -40,7 +40,7 @@
             if(!$result){
                 die("Query Error: ".mysqli_errno($conn)."-".mysqli_error($conn));
             }else{
-                echo "<script>alert('Data berhasil ditambahkan!');window.location='produk.php';</script>";
+                echo "<script>alert('Data berhasil diubah!');window.location='produk.php';</script>";
             }
         }
     

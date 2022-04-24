@@ -98,18 +98,29 @@ include '../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="barang/produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="datapegawai.php">
-                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
-               
                 </li>
             </ul>
          </section>
@@ -135,10 +146,10 @@ include '../koneksi.php';
                       <img src="../produk/<?php echo $data['foto_barang'];?>" class="card-img-top" alt="...">
                       <div class="card-body">
                         <a><strong><?= $data['nama_barang']?></strong></a>
-                        <br>Stok : <?= $data['jumlah']?> Kg
+                        <br>Stok : <?= $data['jumlah']?>
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Harga : Rp <?= $data['harga']?>
-                        <br>Status : <b><?= $data['status']?></b> 
+                        <br>Status : <b><?= $data['pilihan']?></b> 
                         <div class=" text-center">
                            <br>
                            <a href="barang/edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary" style="width: 80px;">EDIT</a>

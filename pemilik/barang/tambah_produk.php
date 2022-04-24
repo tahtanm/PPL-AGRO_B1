@@ -73,7 +73,7 @@ include('../../koneksi.php');
                            $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
                            while ($dataa = $sql -> fetch_assoc()) {
                         ?>
-                           <b><?php echo $dataa['nama_lengkap'] ?></b> <?php  } ?>
+                           <b><?php echo $dataa['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
@@ -98,14 +98,26 @@ include('../../koneksi.php');
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="../datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="../datapegawai.php">
-                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -140,21 +152,19 @@ include('../../koneksi.php');
                                 <div class="col-md-8">
                                     
                                     <form method="POST" enctype="multipart/form-data" action="proses_tambah.php">
-                                    <div class="form-group">
-                                           <label>ID Barang</label>
-                                           <input type="text" class="form-control" name="id_barang" required="required" />
-                                       </div>
 										<div class="form-group"> 
             								<label>Nama Barang</label>
             								<input type="text" class="form-control" name="nama_barang"  required="required">
         								</div>
                                         <div class="form-group">
                                             <label>Ukuran/Varian (Kg)</label>
-                                            <input type="number" class="form-control" name="ukuran" required="required" />
-                                            
+                                            <select class="form-select" name="ukuran" id="ukuran" style="font-size: 14px;">
+                                                <option value="1">1 Kg</option>
+                                                <option value="5">5 Kg</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Jumlah (Kg)</label>
+                                            <label>Jumlah</label>
                                             <input type="number" class="form-control" name="jumlah" required="required" />
                                         </div>
                                         <div class="form-group">

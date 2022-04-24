@@ -1,5 +1,5 @@
 <?php 
-include 'koneksi.php';
+include('../koneksi.php');
 
     $namaLengkap = $_POST["nama_lengkap"];
     $alamat = $_POST["alamat"];
@@ -10,25 +10,25 @@ include 'koneksi.php';
     $password2 = $_POST["password2"];
 
     if($password == $password2){
-        $query = "SELECT * FROM pelanggan WHERE username = '$username'";
+        $query = "SELECT * FROM pegawai WHERE username = '$username'";
         $result = mysqli_query($conn, $query);
 
 
     // cek username sudah ada atau belum
         if(!$result->num_rows > 0) {
-            $query = "INSERT INTO pelanggan (nama_lengkap, alamat, no_hp, email, username, password) VALUES ('$namaLengkap', '$alamat', '$noHP','$email', '$username', '$password')";
+            $query = "INSERT INTO pegawai (nama_lengkap, alamat, no_hp, email, username, password) VALUES ('$namaLengkap', '$alamat', '$noHP','$email', '$username', '$password')";
             $result = mysqli_query($conn, $query);
 
             if(!$result){
                 die("Query Error: ".mysqli_errno($conn)."-".mysqli_error($conn));
             }else{
-                echo "<script>alert('Registrasi berhasil!');window.location='login.php';</script>";
+                echo "<script>alert('Tambah data pegawai berhasil!');window.location='datapegawai.php';</script>";
             }
         }else{
-        echo "<script>alert('Username sudah terpakai');window.location='registrasi.php';</script>";
+        echo "<script>alert('Username sudah terpakai');window.location='tambah_pegawai.php';</script>";
         }
     }else{
-        echo "<script>alert('Konfirmasi password tidak sesuai');window.location='registrasi.php';</script>";
-    }              
-        
+        echo "<script>alert('Konfirmasi password tidak sesuai');window.location='tambah_pegawai.php';</script>";
+    }
+
 ?>

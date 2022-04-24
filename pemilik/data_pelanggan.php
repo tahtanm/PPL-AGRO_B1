@@ -13,7 +13,6 @@ include '../koneksi.php';
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Kres.co</title>
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Google font-->
@@ -64,7 +63,6 @@ include '../koneksi.php';
             <!-- Navbar Right Menu-->
             <div class="navbar-custom-menu f-right">
                <ul class="top-nav">
-                  
                   <!-- User Menu-->
                   <li class="dropdown" style="padding-left: 800px;">
                      <a href="profil.php" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
@@ -75,13 +73,12 @@ include '../koneksi.php';
                            $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
                            while ($data = $sql -> fetch_assoc()) {
                         ?>
-                           <b><?php echo $data['username'] ?></b> <?php }?>
+                           <b><?php echo $data['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
-
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <li><a href="profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <li><a href="../login.php"><i class="icon-logout"></i> Logout</a></li>
                      </ul>
                   </li>
                </ul>
@@ -134,71 +131,56 @@ include '../koneksi.php';
          <div class="container-fluid">
             <div class="row">
                <div class="main-header">
-                  <h4>Profil</h4>
+                  <h4>Data Pelanggan</h4>
                </div>
             </div>
+    
             <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-            <?php
-                $no = 1;
-                $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
-                while ($data = $sql -> fetch_assoc()) {
-            ?>                  
-               <div class="card-block">
-                           <form method="POST"  action="proses_edit.php">
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Nama Lengkap</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="nama_lengkap" required value="<?php echo $data['nama_lengkap'] ?>"/>
-                                 <input type="hidden" name="id" autofokus=""  value="<?php echo $data['id'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Alamat</label>
-                                 <div class="col-sm-10">
-                                 <input type="text" class="form-control" name="alamat" required value="<?php echo $data['alamat'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">No Handphone</label>
-                                 <div class="col-sm-10">
-                                 <input type="tel" class="form-control" pattern="[0-9]{12,13}" name="no_hp" required value="<?php echo $data['no_hp'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Email</label>
-                                 <div class="col-sm-10">
-                                 <input type="email" class="form-control" name="email" required value="<?php echo $data['email'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Username</label>
-                                 <div class="col-sm-10">
-                                 <input readonly type="text" class="form-control" name="username" required value="<?php echo $data['username'] ?>"/>
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Password</label>
-                                 <div class="col-sm-10">
-                                 <input readonly type="password" class="form-control" name="password" required value="<?php echo $data['password'] ?>"/>
-                                 </div>
-                              </div>
+            <div class="col-md-12">
+		
+							
+								<!-- Advanced Tables -->
+								<div class="panel panel-default">
+									
+									<div class="panel-body">
+										<div class="table-responsive">
+											<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+												<thead>
+													<tr>
+														<th>No</th>
+														<th>Nama Lengkap</th>
+														<th>Alamat</th>
+														<th>No Handphone</th>
+														<th>Email</th>
+														<th>Username</th>
+														<th>Password</th>
+													</tr>
 
-                                <div class="col text-right">
-                                    <a href="profil.php" class="btn btn-danger">Back</a>
-                                    <input value="Submit" type="submit"  class="btn btn-primary"> 
-                                </div>
-                              
-                           </form>
-                        </div>
-                        <?php  } ?>
+												</thead>
+												<tbody>
+                <?php
+                    $no = 1;
+                    $sql = $conn->query ("SELECT * FROM pelanggan");
+                    while ($data = $sql -> fetch_assoc()) {
+                ?>
+				<tr>
+                                    		<td><?php echo $no++?></td>
+                                          <td><?php echo $data['nama_lengkap'];?></td>
+                                    		<td><?php echo $data['alamat'];?></td>
+                                    		<td><?php echo $data['no_hp'];?></td>
+                                    		<td><?php echo $data['email'];?></td>
+                                    		<td><?php echo $data['username'];?></td>
+                                    		<td><?php echo $data['password'];?></td>
+                                    	</tr>
+                                    	<?php  } ?>
+                                    </tbody>
+                                </table>
+                  
+              </div>
+            </div>
+          </div>
+            </div>
           </div>
       </div>
    </div>

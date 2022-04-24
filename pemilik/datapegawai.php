@@ -98,14 +98,26 @@ include '../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="barang/produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="datapegawai.php">
-                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
                 
@@ -118,15 +130,17 @@ include '../koneksi.php';
       <div class="content-wrapper">
          <div class="container-fluid">
             <div class="row">
-               <div class="main-header">
-                  <h4>Data Pegawai</h4>
-               </div>
+               <div class="main-header"></div>
             </div>
     
-            <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-		
+            <div class="mt-0 mb-4">
+               <h4 class=" pb-2 text-dark">Data Pegawai</h4>
+			   </div>
+            <div class="main-panel">
+			   <div class="content">
+				   <div class="page-inner">
+					   <a href="tambah_pegawai.php" class="btn btn-primary" style="margin-bottom: 15px;">+Tambah Data Pegawai</a>
+
 							
 								<!-- Advanced Tables -->
 								<div class="panel panel-default">
@@ -138,9 +152,6 @@ include '../koneksi.php';
 													<tr>
 														<th>No</th>
 														<th>Nama Lengkap</th>
-														<th>Tempat Lahir</th>
-														<th>Tanggal Lahir</th>
-														<th>Jenis Kelamin</th>
 														<th>Alamat</th>
 														<th>No Handphone</th>
 														<th>Email</th>
@@ -155,30 +166,24 @@ include '../koneksi.php';
                     $sql = $conn->query ("SELECT * FROM pegawai");
                     while ($data = $sql -> fetch_assoc()) {
                 ?>
-				<tr>
+				                           <tr>
                                     		<td><?php echo $no++?></td>
-                                            <td><?php echo $data['nama_lengkap'];?></td>
-                                    		<td><?php echo $data['tempat_lahir'];?></td>
-                                    		<td><?php echo $data['tanggal_lahir'];?></td>
-                                    		<td><?php echo $data['jenis_kelamin'];?></td>
+                                          <td><?php echo $data['nama_lengkap'];?></td>
                                     		<td><?php echo $data['alamat'];?></td>
                                     		<td><?php echo $data['no_hp'];?></td>
                                     		<td><?php echo $data['email'];?></td>
                                     		<td><?php echo $data['username'];?></td>
                                             <td>
+                                             <a href="edit_pegawai.php?php echo $data['id']; ?>" class="btn btn-primary">EDIT</a>
                                     			<a onclick="return confirm('Yakin ingi menghapus data?')" href="hapus_pegawai.php?id=<?php echo $data['id']; ?>" class="btn btn-danger">HAPUS</a>
-                                    			<a href="edit_pegawai.php?php echo $data['id']; ?>" class="btn btn-primary">EDIT</a>
                                     		</td>
                                     	</tr>
                                     	<?php  } ?>
                                     </tbody>
                                 </table>
-                  
-              </div>
-            </div>
-          </div>
-            </div>
-          </div>
+                              </div>
+                           </div>
+                        </div>
       </div>
    </div>
 

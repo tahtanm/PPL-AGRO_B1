@@ -1,9 +1,9 @@
 <?php
 session_start();
+include('../koneksi.php');
 
-include '../../koneksi.php';
+
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -55,7 +55,7 @@ include '../../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="../index.php" class="logo"><b>Kres.co</b></a>
+         <a href="../index.php" class="logo" ><b>Kres.co</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -70,10 +70,10 @@ include '../../koneksi.php';
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
-                           while ($data = $sql -> fetch_assoc()) {
+                           $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
+                           while ($dataa = $sql -> fetch_assoc()) {
                         ?>
-                           <b><?php echo $data['username'] ?></b> <?php  } ?>
+                           <b><?php echo $dataa['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
@@ -98,6 +98,18 @@ include '../../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="../datapegawai.php">
+                        <i class="icon-list"></i><span> Data Pegawai</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                        <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
@@ -108,7 +120,6 @@ include '../../koneksi.php';
                         <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
-            
                 
                
                 </li>
@@ -116,71 +127,71 @@ include '../../koneksi.php';
          </section>
       </aside>
       
-      <div class="content-wrapper">
+      <<div class="content-wrapper">
          <div class="container-fluid">
             <div class="row">
                <div class="main-header">
+                  <h4>Tambah Pegawai</h4>
                </div>
             </div>
-
-			<div class="main-panel">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
-					<a href="tambah_produk.php" class="btn btn-primary" style="margin-bottom: 15px;">+Tambah Data</a>
-					<div class="mt-0 mb-4">
-						<h2 class=" pb-2 text-dark">Data Produk</h2>
-					</div>
-               
-		
 					
-								<!-- Advanced Tables -->
-								<div class="panel panel-default">
-									
-									<div class="panel-body">
-										<div class="table-responsive">
-											<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-												<thead>
-													<tr>
-                                          <th>No</th>
-														<th>Nama Barang</th>
-														<th>Ukuran (Kg)</th>
-														<th>Jumlah</th>
-														<th>Harga</th>
-														<th>Foto Barang</th>
-														<th>Status Ketersediaan</th>
-														<th>Aksi</th>
-													</tr>
-
-												</thead>
-												<tbody>
-                <?php
-                    $no = 1;
-                    $sql = $conn->query ("SELECT * FROM barang");
-                    while ($data = $sql -> fetch_assoc()) {
-                ?>
-				<tr>
-                                    		<td><?php echo $no++?></td>
-                                          <td><?php echo $data['nama_barang'];?></td>
-                                    		<td><?php echo $data['ukuran'];?></td>
-                                    		<td><?php echo $data['jumlah'];?></td>
-                                    		<td>Rp <?php echo $data['harga'];?></td>
-                                          <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
-                                    		<td><?php echo $data['status'];?></td>
-                                            <td>
-                                             <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">EDIT</a>
-                                    			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">HAPUS</a>
-                                    		</td>
-                                    	</tr>
-                                    	<?php  } ?>
-                                    </tbody>
-                                </table>
-                  <!-- ------------------------- -->
-                  
-              </div>
+					
+					<div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    
+                                    <form method="POST" action="proses_tambah.php">
+                                        <div class="form-group">
+                                            <label>Nama Lengkap</label>
+                                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alamat</label>
+                                            <input type="text" class="form-control" name="alamat" placeholder="Alamat" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No Handphone</label>
+                                            <input type="tel" class="form-control" name="no_hp" pattern="[0-9]{12,13}" placeholder="No HP" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" name="email" placeholder="Email" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input type="text" class="form-control" name="username" placeholder="Username" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Password" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Konfirmasi password</label>
+                                            <input type="password" class="form-control" name="password2" id="password2" placeholder="Ulangi password anda" required/>
+                                        </div>
+                                        <div class="col text-right">
+                                            <input type="submit" class="form-submit" value="Tambah"/>
+                                        </div>
+                           </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-   </div>
+            
 
    <!-- Required Jqurey -->
    <script src="../../Assets/plugins/Jquery/dist/jquery.min.js"></script>
@@ -234,3 +245,8 @@ $window.scroll(function(){
 
 </body>
 </html>
+
+	
+
+
+

@@ -71,7 +71,7 @@ include('../../koneksi.php');
                         <?php
                            $no = 1;
                            $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
-                           while ($dataa=$sql -> fetch_assoc()) {
+                           while ($dataa = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $dataa['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
@@ -100,6 +100,12 @@ include('../../koneksi.php');
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
+                    </a>                
+                </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
            
@@ -135,21 +141,19 @@ include('../../koneksi.php');
                                 <div class="col-md-8">
                                     
                                     <form method="POST" enctype="multipart/form-data" action="proses_tambah.php">
-                                    <div class="form-group">
-                                           <label>ID Barang</label>
-                                           <input type="text" class="form-control" name="id_barang" required="required" />
+                                       <div class="form-group"> 
+                                             <label>Nama Barang</label>
+                                             <input type="text" class="form-control" name="nama_barang"  required="required">
                                        </div>
-										<div class="form-group"> 
-            								<label>Nama Barang</label>
-            								<input type="text" class="form-control" name="nama_barang"  required="required">
-        								</div>
                                         <div class="form-group">
                                             <label>Ukuran/Varian (Kg)</label>
-                                            <input type="number" class="form-control" name="ukuran" required="required" />
-                                            
+                                            <select class="form-select" name="ukuran" id="ukuran" style="font-size: 14px;">
+                                                   <option value="1">1 Kg</option>
+                                                   <option value="5">5 Kg</option>
+                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Jumlah (Kg)</label>
+                                            <label>Jumlah</label>
                                             <input type="number" class="form-control" name="jumlah" required="required" />
                                         </div>
                                         <div class="form-group">
@@ -161,13 +165,12 @@ include('../../koneksi.php');
                                             <select class="form-select" name="pilihan" id="pilihan">
                                                 <option value="Tersedia">Tersedia</option>
                                                 <option value="Kosong">Kosong</option>
-                                             </select>
+                                            </select>
                                         </div>
-        								         <div>
+        								          <div>
                                             <label>Foto Produk</label>
                                             <input type="file" name="foto_barang" required="required" />
-                                            </div>
-                                            
+                                        </div> 
                                         <div class="col text-right">
                                              <a href="produk.php" class="btn btn-danger">Back</a>
                                         	   <input type="submit" class="btn btn-primary">

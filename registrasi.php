@@ -9,9 +9,12 @@ include('koneksi.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
     <!-- Font Icon -->
     <link rel="stylesheet" href="Assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Required Framework -->
+    <link rel="stylesheet" type="text/css" href="Assets/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="Assets/css/style.css">
@@ -30,18 +33,6 @@ include('koneksi.php');
                         <div class="form-group">
                             <label for="nama"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="nama lengkap" id="nama lengkap" placeholder="Nama Lengkap" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="tempat lahir"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="tempat lahir" id="tempat lahir" placeholder="Tempat Lahir" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="tanggal lahir"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="date" name="tanggal lahir" id="tanggal lahir" placeholder="Tanggal Lahir" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="jenis kelamin"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="jenis kelamin" id="jenis kelamin" placeholder="Jenis Kelamin" required/>
                         </div>
                         <div class="form-group">
                             <label for="alamat"><i class="zmdi zmdi-account material-icons-name"></i></label>

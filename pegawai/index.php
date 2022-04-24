@@ -71,7 +71,7 @@ include '../koneksi.php';
                         <?php
                            $no = 1;
                            $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
-                           while ($data=$sql -> fetch_assoc()) {
+                           while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php  } ?>
                            <i class=" icofont icofont-simple-down"></i></span>
@@ -102,6 +102,12 @@ include '../koneksi.php';
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
+                <li class="nav-level"></li>
+                <li class="active treeview">
+                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                        <i class="icon-briefcase"></i><span> Pemesanan</span>
+                    </a>                
+                </li>
                 
                
                 </li>
@@ -129,10 +135,10 @@ include '../koneksi.php';
                       <img src="../produk/<?php echo $data['foto_barang'];?>" class="card-img-top" alt="...">
                       <div class="card-body">
                         <a><strong><?= $data['nama_barang']?></strong></a>
-                        <br>Stok : <?= $data['jumlah']?> Kg
+                        <br>Stok : <?= $data['jumlah']?> 
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Harga : Rp <?= $data['harga']?>
-                        <br>Status : <b><?= $data['status']?></b> 
+                        <br>Status : <b><?= $data['pilihan']?></b> 
                         <div class=" text-center">
                            <br>
                            <a href="barang/edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary" style="width: 80px;">EDIT</a>
