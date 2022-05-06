@@ -19,33 +19,33 @@ include('../koneksi.php');
    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
 
 <!-- themify -->
-<link rel="stylesheet" type="text/css" href="../../Assets/icon/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="../Assets/icon/themify-icons/themify-icons.css">
 
 <!-- iconfont -->
-<link rel="stylesheet" type="text/css" href="../../Assets/icon/icofont/css/icofont.css">
+<link rel="stylesheet" type="text/css" href="../Assets/icon/icofont/css/icofont.css">
 
 <!-- simple line icon -->
-<link rel="stylesheet" type="text/css" href="../../Assets/icon/simple-line-icons/css/simple-line-icons.css">
+<link rel="stylesheet" type="text/css" href="../Assets/icon/simple-line-icons/css/simple-line-icons.css">
 
 <!-- Required Fremwork -->
-<link rel="stylesheet" type="text/css" href="../../Assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../Assets/plugins/bootstrap/css/bootstrap.min.css">
 
 <!-- Chartlist chart css -->
-<link rel="stylesheet" href="../../Assets/plugins/chartist/dist/chartist.css" type="text/css" media="all">
+<link rel="stylesheet" href="../Assets/plugins/chartist/dist/chartist.css" type="text/css" media="all">
 
 <!-- Weather css -->
-<link href="../../Assets/css/svg-weather.css" rel="stylesheet">
+<link href="../Assets/css/svg-weather.css" rel="stylesheet">
 
 
 <!-- Style.css -->
-<link rel="stylesheet" type="text/css" href="../../Assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="../Assets/css/main.css">
 
 <!-- Responsive.css-->
-<link rel="stylesheet" type="text/css" href="../../Assets/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="../Assets/css/responsive.css">
 
     
     <!-- Custom styles for this template -->
-    <link href="../../Assets/css/sidebars.css" rel="stylesheet">
+    <link href="../Assets/css/sidebars.css" rel="stylesheet">
   </head>
   <body class="sidebar-mini fixed">
    <div class="loader-bg">
@@ -55,7 +55,7 @@ include('../koneksi.php');
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="../index.php" class="logo" ><b>Kres.co</b></a>
+         <a href="index.php" class="logo" ><b>Kres.co PEMILIK</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -66,7 +66,7 @@ include('../koneksi.php');
                   <!-- User Menu-->
                   <li class="dropdown" style="padding-left: 800px;">
                      <a href="profil.php" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                        <span><img class="img-circle " src="../../Assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
+                        <span><img class="img-circle " src="../Assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
                         <span>
                         <?php
                            $no = 1;
@@ -77,8 +77,8 @@ include('../koneksi.php');
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="../profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -92,13 +92,13 @@ include('../koneksi.php');
             <ul class="sidebar-menu">
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="../index.php">
+                    <a class="waves-effect waves-dark" href="index.php">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="../datapegawai.php">
+                    <a class="waves-effect waves-dark" href="datapegawai.php">
                         <i class="icon-list"></i><span> Data Pegawai</span>
                     </a>                
                 </li>
@@ -110,7 +110,7 @@ include('../koneksi.php');
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="produk.php">
+                    <a class="waves-effect waves-dark" href="barang/produk.php">
                         <i class="icon-briefcase"></i><span> Produk</span>
                     </a>                
                 </li>
@@ -181,7 +181,8 @@ include('../koneksi.php');
                                             <input type="password" class="form-control" name="password2" id="password2" placeholder="Ulangi password anda" required/>
                                         </div>
                                         <div class="col text-right">
-                                            <input type="submit" class="form-submit" value="Tambah"/>
+                                            <a href="datapegawai.php" class="btn btn-danger">Back</a>
+                                            <input type="submit" value="Submit" class="btn btn-primary"/>
                                         </div>
                            </div>
                                     </form>
@@ -194,42 +195,42 @@ include('../koneksi.php');
             
 
    <!-- Required Jqurey -->
-   <script src="../../Assets/plugins/Jquery/dist/jquery.min.js"></script>
-   <script src="../../Assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-   <script src="../../Assets/plugins/tether/dist/js/tether.min.js"></script>
+   <script src="../Assets/plugins/Jquery/dist/jquery.min.js"></script>
+   <script src="../Assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <script src="../Assets/plugins/tether/dist/js/tether.min.js"></script>
 
    <!-- Required Fremwork -->
-   <script src="../../Assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+   <script src="../Assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
    <!-- Scrollbar JS-->
-   <script src="../../Assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-   <script src="../../Assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+   <script src="../Assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+   <script src="../Assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
 
    <!--classic JS-->
-   <script src="../../Assets/plugins/classie/classie.js"></script>
+   <script src="../Assets/plugins/classie/classie.js"></script>
 
    <!-- notification -->
-   <script src="../../Assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+   <script src="../Assets/plugins/notification/js/bootstrap-growl.min.js"></script>
 
    <!-- Sparkline charts -->
-   <script src="../../Assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
+   <script src="../Assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
 
    <!-- Counter js  -->
-   <script src="../../Assets/plugins/waypoints/jquery.waypoints.min.js"></script>
-   <script src="../../Assets/plugins/countdown/js/jquery.counterup.js"></script>
+   <script src="../Assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+   <script src="../Assets/plugins/countdown/js/jquery.counterup.js"></script>
 
    <!-- Echart js -->
-   <script src="../../Assets/plugins/charts/echarts/js/echarts-all.js"></script>
+   <script src="../Assets/plugins/charts/echarts/js/echarts-all.js"></script>
 
    <script src="https://code.highcharts.com/highcharts.js"></script>
    <script src="https://code.highcharts.com/modules/exporting.js"></script>
    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 
    <!-- custom js -->
-   <script type="text/javascript" src="../../Assets/js/main.min.js"></script>
-   <script type="text/javascript" src="../../Assets/pages/dashboard.js"></script>
-   <script type="text/javascript" src="../../Assets/pages/elements.js"></script>
-   <script src="../../Assets/js/menu.min.js"></script>
+   <script type="text/javascript" src="../Assets/js/main.min.js"></script>
+   <script type="text/javascript" src="../Assets/pages/dashboard.js"></script>
+   <script type="text/javascript" src="../Assets/pages/elements.js"></script>
+   <script src="../Assets/js/menu.min.js"></script>
 <script>
 var $window = $(window);
 var nav = $('.fixed-button');

@@ -32,6 +32,6 @@ if (mysqli_num_rows($q) == 1) {
     header('location:pelanggan/index.php');
 }else {
     //echo "Login Gagal";
-    echo "<script>alert('Username Atau Password Yang Anda Masukkan Salah!');window.location='login.php';</script>";
+    echo "<script>alert('Username atau Password yang anda masukkan salah!');window.location='index.php';</script>";
 }
 ?>

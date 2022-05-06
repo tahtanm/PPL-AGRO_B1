@@ -20,7 +20,7 @@
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
             move_uploaded_file($file_tmp, '../../produk/'.$nama_gambar_baru);
 
-            $query = "UPDATE barang SET id_barang = '$id_barang', ukuran = '$ukuran', status = '$pilihan', nama_barang = '$nama_barang', jumlah = '$jumlah', harga = '$harga', foto_barang = '$nama_gambar_baru' ";
+            $query = "UPDATE barang SET id_barang = '$id_barang', ukuran = '$ukuran', pilihan = '$pilihan', nama_barang = '$nama_barang', jumlah = '$jumlah', harga = '$harga', foto_barang = '$nama_gambar_baru' ";
             $query .= "WHERE id_barang='$id_barang'";
             $result = mysqli_query($conn, $query);
 
@@ -33,7 +33,7 @@
                 echo "<script>alert('Ekstensi gambar hanya bisa jpg dan png!');window.location='edit_produk.php';</script>";
             }
         }else{
-            $query = "UPDATE barang SET id_barang = '$id_barang', ukuran ='$ukuran', status = '$pilihan', nama_barang = '$nama_barang', jumlah = '$jumlah', harga = '$harga'";
+            $query = "UPDATE barang SET id_barang = '$id_barang', ukuran ='$ukuran', pilihan = '$pilihan', nama_barang = '$nama_barang', jumlah = '$jumlah', harga = '$harga'";
             $query .= "WHERE id_barang = '$id_barang'";
             $result = mysqli_query($conn, $query);
 

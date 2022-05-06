@@ -55,7 +55,7 @@ include '../../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="../index.php" class="logo"><b>Kres.co</b></a>
+         <a href="../index.php" class="logo"><b>Kres.co PEMILIK</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -77,8 +77,8 @@ include '../../koneksi.php';
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="../profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="../profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -104,7 +104,7 @@ include '../../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="data_pelanggan.php">
+                    <a class="waves-effect waves-dark" href="../data_pelanggan.php">
                         <i class="icofont icofont-users"></i><span> Data Pelanggan</span>
                     </a>                
                 </li>
@@ -116,7 +116,7 @@ include '../../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                    <a class="waves-effect waves-dark" href="../pemesanan/index.php">
                         <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
@@ -173,7 +173,7 @@ include '../../koneksi.php';
                                           <td><?php echo $data['nama_barang'];?></td>
                                     		<td><?php echo $data['ukuran'];?></td>
                                     		<td><?php echo $data['jumlah'];?></td>
-                                    		<td>Rp <?php echo $data['harga'];?></td>
+                                    		<td>Rp <?php echo number_format($data['harga'])?></td>
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
                                     		<td><?php echo $data['pilihan'];?></td>
                                             <td>

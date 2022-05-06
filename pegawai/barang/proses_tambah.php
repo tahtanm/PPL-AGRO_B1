@@ -20,7 +20,7 @@
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
             move_uploaded_file($file_tmp, '../../produk/'.$nama_gambar_baru);
 
-            $query = "INSERT INTO barang (id_barang, nama_barang, ukuran, jumlah, harga, status, foto_barang) VALUES ('$id_barang', '$nama_barang', '$ukuran', '$jumlah', '$harga', '$pilihan', '$nama_gambar_baru')";
+            $query = "INSERT INTO barang (id_barang, nama_barang, ukuran, jumlah, harga, pilihan, foto_barang) VALUES ('$id_barang', '$nama_barang', '$ukuran', '$jumlah', '$harga', '$pilihan', '$nama_gambar_baru')";
             $result = mysqli_query($conn, $query);
 
             if(!$result){
@@ -32,7 +32,7 @@
                 echo "<script>alert('Ekstensi gambar hanya bisa jpg dan png!');window.location='tambah_produk.php';</script>";
             }
         }else{
-            $query = "INSERT INTO barang (id_barang, nama_barang, ukuran, jumlah, harga, status) VALUES ('$id_barang', '$nama_barang', '$ukuran', '$jumlah', '$harga', '$pilihan')";
+            $query = "INSERT INTO barang (id_barang, nama_barang, ukuran, jumlah, harga, pilihan) VALUES ('$id_barang', '$nama_barang', '$ukuran', '$jumlah', '$harga', '$pilihan')";
             $result = mysqli_query($conn, $query);
 
             if(!$result){

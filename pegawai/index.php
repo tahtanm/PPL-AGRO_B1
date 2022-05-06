@@ -55,7 +55,7 @@ include '../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="index.php" class="logo"><b>Kres.co</b></a>
+         <a href="index.php" class="logo"><b>Kres.co PEGAWAI</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -77,8 +77,8 @@ include '../koneksi.php';
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -137,7 +137,7 @@ include '../koneksi.php';
                         <a><strong><?= $data['nama_barang']?></strong></a>
                         <br>Stok : <?= $data['jumlah']?> 
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
-                        <br>Harga : Rp <?= $data['harga']?>
+                        <br>Harga : Rp <?= number_format($data['harga'])?>
                         <br>Status : <b><?= $data['pilihan']?></b> 
                         <div class=" text-center">
                            <br>

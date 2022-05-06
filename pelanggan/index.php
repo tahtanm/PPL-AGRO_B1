@@ -55,14 +55,14 @@ include '../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="index.php" class="logo"><b>Kres.co</b></a>
+         <a href="index.php" class="logo"><b>Kres.co PELANGGAN</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
             
             <!-- Navbar Right Menu-->
             <div class="navbar-custom-menu f-right">
-               <ul class="top-nav">
+               <ul class="top-nav" >
                   <!-- User Menu-->
                   <li class="dropdown" style="padding-left: 800px;">
                      <a href="profil.php" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
@@ -77,8 +77,8 @@ include '../koneksi.php';
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -86,7 +86,7 @@ include '../koneksi.php';
          </nav>
       </header>
       <!-- Side-Nav-->
-      <aside class="main-sidebar hidden-print ">
+      <aside class="main-sidebar hidden-print">
          <section class="sidebar" id="sidebar-scroll">
             <!-- Sidebar Menu-->
             <ul class="sidebar-menu">
@@ -129,13 +129,14 @@ include '../koneksi.php';
                       <img src="../produk/<?php echo $data['foto_barang'];?>" class="card-img-top" alt="...">
                       <div class="card-body">
                         <a><strong><?= $data['nama_barang']?></strong></a>
-                        <br>Stok : <?= $data['jumlah']?> 
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
-                        <br>Harga : Rp <?= $data['harga']?>
+                        <br>Harga : Rp <?= number_format($data['harga'])?>
                         <br>Status : <b><?= $data['pilihan']?></b> 
                         <div class=" text-center">
                            <br>
-                           <a href="keranjang/keranjang.php?id_barang=<?php echo $data['id_barang']; ?>" class="icon ..." style="width: 80px;">EDIT</a>
+                           <a href="detail.php?id=<?= $data['id_barang'];?>" class="btn btn-primary">Detail</a>
+                           <!-- <a href="keranjang/keranjang.php?id_barang=<?php echo $data['id_barang']; ?>" class="icofont icofont-ui-cart" style="width: 80px;"> Masukkan Keranjang</a><br>
+                           <a href="pemesanan/pemesanan.php?id_barang=<?php echo $data['id_barang']; ?>" class="icofont icofont-money-bag" style="width: 80px;"> Buat Pesanan</a> -->
                         </div>
                       </div>
                     </div>

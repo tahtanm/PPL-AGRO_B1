@@ -56,7 +56,7 @@ include '../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="index.php" class="logo"><b>Kres.co</b></a>
+         <a href="index.php" class="logo"><b>Kres.co PEMILIK</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -80,8 +80,8 @@ include '../koneksi.php';
 
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -189,7 +189,7 @@ include '../koneksi.php';
                                  <input readonly type="password" class="form-control" name="password"  value="<?php echo $data['password'] ?>"/>
                                  </div>
                               </div>
-
+                                 <a href="index.php" class="btn btn-danger">BACK</a>
                                   <a href="edit_profil.php?username=<?php echo $data['username']; ?>" class="btn btn-primary">EDIT</a>
                               
                            </form>

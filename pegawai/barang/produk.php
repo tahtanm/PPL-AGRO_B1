@@ -55,7 +55,7 @@ include '../../koneksi.php';
    <div class="wrapper">
       <!-- Navbar-->
       <header class="main-header-top hidden-print">
-         <a href="../index.php" class="logo"><b>Kres.co</b></a>
+         <a href="../index.php" class="logo"><b>Kres.co PEGAWAI</b></a>
          <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
             <a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
@@ -77,8 +77,8 @@ include '../../koneksi.php';
                            <i class=" icofont icofont-simple-down"></i></span>
                      </a>
                      <ul class="dropdown-menu settings-menu">
-                        <li><a href="../profil.php"><i class="icon-user"></i> Profile</a></li>
-                        <li><a href="../../logout.php"><i class="icon-logout"></i> Logout</a></li>
+                        <a style = "text-decoration: none; color: black;" href="../profil.php"><li><i class="icon-user"></i> Profile</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
                      </ul>
                   </li>
                </ul>
@@ -104,7 +104,7 @@ include '../../koneksi.php';
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                    <a class="waves-effect waves-dark" href="../pemesanan/index.php">
                         <i class="icon-briefcase"></i><span> Pemesanan</span>
                     </a>                
                 </li>
@@ -123,16 +123,14 @@ include '../../koneksi.php';
                </div>
             </div>
 
-			<div class="main-panel">
-			<div class="content">
-				<div class="page-inner">
-					<a href="tambah_produk.php" class="btn btn-primary" style="margin-bottom: 15px;">+Tambah Data</a>
 					<div class="mt-0 mb-4">
 						<h2 class=" pb-2 text-dark">Data Produk</h2>
 					</div>
+               <div class="main-panel">
+                  <div class="content">
+                     <div class="page-inner">
+                        <a href="tambah_produk.php" class="btn btn-primary" style="margin-bottom: 15px;">+Tambah Data</a>
                
-		
-					
 								<!-- Advanced Tables -->
 								<div class="panel panel-default">
 									
@@ -163,9 +161,9 @@ include '../../koneksi.php';
                                           <td><?php echo $data['nama_barang'];?></td>
                                     		<td><?php echo $data['ukuran'];?></td>
                                     		<td><?php echo $data['jumlah'];?></td>
-                                    		<td>Rp <?php echo $data['harga'];?></td>
+                                    		<td>Rp <?php echo number_format($data['harga'])?></td>
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
-                                    		<td><?php echo $data['status'];?></td>
+                                    		<td><?php echo $data['pilihan'];?></td>
                                             <td>
                                              <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">EDIT</a>
                                     			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">HAPUS</a>
