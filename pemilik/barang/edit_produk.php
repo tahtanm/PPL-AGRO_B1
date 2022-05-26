@@ -70,7 +70,7 @@ include('../../koneksi.php');
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
+                           $sql = $conn->query ("SELECT * FROM pemilik WHERE id_pemilik ='$_SESSION[id_pemilik]'");
                            while ($dataa = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $dataa['username'] ?></b> <?php  } ?>
@@ -78,7 +78,7 @@ include('../../koneksi.php');
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="../profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -111,7 +111,7 @@ include('../../koneksi.php');
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
-                        <i class="icon-briefcase"></i><span> Produk</span>
+                        <i class="icon-briefcase"></i><span> Barang</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
@@ -131,7 +131,7 @@ include('../../koneksi.php');
          <div class="container-fluid">
             <div class="row">
                <div class="main-header">
-                  <h4>Produk</h4>
+                  <h4>Edit data Barang</h4>
                </div>
             </div>
             <div class="container">
@@ -196,8 +196,8 @@ include('../../koneksi.php');
         								</div>
 
                                 <div class="col text-right">
-                                    <a href="produk.php" class="btn btn-danger">Back</a>
-                                    <input value="Submit" type="submit" class="btn btn-primary">
+                                    <a href="produk.php" class="btn btn-danger">Batal</a>
+                                    <input value="Simpan" type="submit" class="btn btn-primary">
                                 </div>
                            </form>
                         </div>

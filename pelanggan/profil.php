@@ -81,7 +81,7 @@ include '../koneksi.php';
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -99,6 +99,12 @@ include '../koneksi.php';
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
                 </li>
+                <li class="nav-level"></li>
+                    <li class="active treeview">
+                        <a class="waves-effect waves-dark" href="keranjang.php">
+                            <i class="icon-briefcase"></i><span> Keranjang</span>
+                        </a>
+                    </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="pemesanan/index.php">
@@ -171,8 +177,7 @@ include '../koneksi.php';
                                  <input readonly type="password" class="form-control" name="password"  value="<?php echo $data['password'] ?>"/>
                                  </div>
                               </div>
-                                 <a href="index.php" class="btn btn-danger">BACK</a>
-                                  <a href="edit_profil.php?username=<?php echo $data['username']; ?>" class="btn btn-primary">EDIT</a>
+                                  <a href="edit_profil.php?username=<?php echo $data['username']; ?>" class="btn btn-primary">Ubah</a>
                               
                            </form>
                         </div>

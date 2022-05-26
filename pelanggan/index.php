@@ -78,7 +78,7 @@ include '../koneksi.php';
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -95,6 +95,12 @@ include '../koneksi.php';
                     <a class="waves-effect waves-dark" href="index.php">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
+                </li>
+                <li class="nav-level"></li>
+                    <li class="active treeview">
+                        <a class="waves-effect waves-dark" href="keranjang.php">
+                            <i class="icon-briefcase"></i><span> Keranjang</span>
+                        </a>
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
@@ -130,8 +136,9 @@ include '../koneksi.php';
                       <div class="card-body">
                         <a><strong><?= $data['nama_barang']?></strong></a>
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
+                        <br>Stok : <?= $data['jumlah'] ?>
                         <br>Harga : Rp <?= number_format($data['harga'])?>
-                        <br>Status : <b><?= $data['pilihan']?></b> 
+                        <br>Status Ketersediaan : <b><?= $data['pilihan']?></b> 
                         <div class=" text-center">
                            <br>
                            <a href="detail.php?id=<?= $data['id_barang'];?>" class="btn btn-primary">Detail</a>

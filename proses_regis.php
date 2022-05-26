@@ -22,7 +22,7 @@ include 'koneksi.php';
             if(!$result){
                 die("Query Error: ".mysqli_errno($conn)."-".mysqli_error($conn));
             }else{
-                echo "<script>alert('Registrasi berhasil!');window.location='pelanggan/index.php';</script>";
+                echo "<script>alert('Registrasi berhasil!');window.location='index.php';</script>";
             }
         }else{
         echo "<script>alert('Username sudah terpakai');window.location='index.php';</script>";

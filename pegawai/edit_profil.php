@@ -72,7 +72,7 @@ include '../koneksi.php';
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
+                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id_pegawai ='$_SESSION[id_pegawai]'");
                            while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php }?>
@@ -81,7 +81,7 @@ include '../koneksi.php';
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -102,7 +102,7 @@ include '../koneksi.php';
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="barang/produk.php">
-                        <i class="icon-briefcase"></i><span> Produk</span>
+                        <i class="icon-briefcase"></i><span> Barang</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
@@ -136,7 +136,7 @@ include '../koneksi.php';
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <?php
                 $no = 1;
-                $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
+                $sql = $conn->query ("SELECT * FROM pegawai WHERE id_pegawai ='$_SESSION[id_pegawai]'");
                 while ($data = $sql -> fetch_assoc()) {
             ?>                  
                <div class="card-block">
@@ -179,8 +179,8 @@ include '../koneksi.php';
                               </div>
 
                                 <div class="col text-right">
-                                <a href="profil.php" class="btn btn-danger">Back</a>
-                                <input value="Submit" type="submit" class="btn btn-primary">
+                                <a href="profil.php" class="btn btn-danger">Batal</a>
+                                <input value="Simpan" type="submit" class="btn btn-primary">
                                 </div>
                               
                            </form>

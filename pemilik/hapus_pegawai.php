@@ -1,9 +1,9 @@
 <?php
 include '../koneksi.php';
 
-    $id = @$_GET['id'];
+    $id = @$_GET['id_pegawai'];
 
-    $sql = $conn -> query ("DELETE FROM pegawai WHERE id = '".$id."'");
+    $sql = $conn -> query ("DELETE FROM pegawai WHERE id_pegawai = '".$id."'");
 
     header("location: datapegawai.php");
 

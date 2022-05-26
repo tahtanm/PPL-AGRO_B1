@@ -102,7 +102,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                                     <li><i class="icon-user"></i> Profile</li>
                                 </a>
                                 <a style="text-decoration: none; color: black;" href="../logout.php">
-                                    <li><i class="icon-logout"></i> Logout</li>
+                                    <li><i class="icon-logout"></i> Keluar</li>
                                 </a>
                             </ul>
                         </li>
@@ -123,9 +123,15 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                     </li>
                     <li class="nav-level"></li>
                     <li class="active treeview">
+                        <a class="waves-effect waves-dark" href="keranjang.php">
+                            <i class="icon-briefcase"></i><span> Keranjang</span>
+                        </a>
+                    </li>
+                    <li class="nav-level"></li>
+                    <li class="active treeview">
                         <a class="waves-effect waves-dark" href="pemesanan/index.php">
                             <i class="icon-briefcase"></i><span> Pemesanan</span>
-                        </a>
+                        </a>                
                     </li>
 
 
@@ -146,7 +152,8 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Produk</th>
+                            <th>Nama Barang</th>
+                            <th>Ukuran/Varian</th>
                             <th>Harga</th>
                             <th>Jumlah</th>
                             <th>Subharga</th>
@@ -168,17 +175,23 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                             <tr>
                                 <td><?= $i; ?></td>
                                 <td><?= $pecah['nama_barang']; ?></td>
+                                <td><?= $pecah['ukuran']; ?></td>
                                 <td>Rp. <?= number_format($pecah['harga']); ?></td>
                                 <td><?= $jumlah; ?></td>
                                 <td>Rp. <?= number_format($pecah['harga'] * $jumlah); ?></td>
                                 <td>
-                                    <a href="hapuskeranjang.php?id=<?= $id_produk; ?>" class="btn btn-danger btn-xs">Hapus</a>
+                                    <a onclick="return confirm('Yakin ingin menghapus data?')" href="hapuskeranjang.php?id=<?= $id_barang; ?>" class="btn btn-danger btn-xs">Hapus</a>
                                 </td>
                             </tr>
                             <?php $i++ ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+
+                <div class="input-group-btn">
+                    <a href="index.php" class="btn btn-default">Lanjutkan Belanja</a>
+                    <a href="checkout.php" class="btn btn-primary">Checkout</a>
+                </div>
             </div>
         </div>
 

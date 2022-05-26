@@ -70,7 +70,7 @@ include '../../koneksi.php';
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
+                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id_pegawai ='$_SESSION[id_pegawai]'");
                            while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php  } ?>
@@ -99,7 +99,7 @@ include '../../koneksi.php';
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
-                        <i class="icon-briefcase"></i><span> Produk</span>
+                        <i class="icon-briefcase"></i><span> Barang</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
@@ -124,7 +124,7 @@ include '../../koneksi.php';
             </div>
 
 					<div class="mt-0 mb-4">
-						<h2 class=" pb-2 text-dark">Data Produk</h2>
+						<h2 class=" pb-2 text-dark">Data Stok Barang</h2>
 					</div>
                <div class="main-panel">
                   <div class="content">
@@ -165,8 +165,8 @@ include '../../koneksi.php';
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
                                     		<td><?php echo $data['pilihan'];?></td>
                                             <td>
-                                             <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">EDIT</a>
-                                    			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">HAPUS</a>
+                                             <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">Ubah</a>
+                                    			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">Hapus</a>
                                     		</td>
                                     	</tr>
                                     	<?php  } ?>

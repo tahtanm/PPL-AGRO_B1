@@ -100,7 +100,7 @@ $perdata = $data->fetch_assoc();
                                     <li><i class="icon-user"></i> Profile</li>
                                 </a>
                                 <a style="text-decoration: none; color: black;" href="../logout.php">
-                                    <li><i class="icon-logout"></i> Logout</li>
+                                    <li><i class="icon-logout"></i> Keluar</li>
                                 </a>
                             </ul>
                         </li>
@@ -121,14 +121,14 @@ $perdata = $data->fetch_assoc();
                     </li>
                     <li class="nav-level"></li>
                     <li class="active treeview">
-                        <a class="waves-effect waves-dark" href="pemesanan/index.php">
-                            <i class="icon-briefcase"></i><span> Pemesanan</span>
+                        <a class="waves-effect waves-dark" href="keranjang.php">
+                            <i class="icon-briefcase"></i><span> Keranjang</span>
                         </a>
                     </li>
                     <li class="nav-level"></li>
                     <li class="active treeview">
-                        <a class="waves-effect waves-dark" href="keranjang.php">
-                            <i class="icon-briefcase"></i><span> Keranjang</span>
+                        <a class="waves-effect waves-dark" href="pemesanan/index.php">
+                            <i class="icon-briefcase"></i><span> Pemesanan</span>
                         </a>
                     </li>
                 </ul>
@@ -152,16 +152,20 @@ $perdata = $data->fetch_assoc();
                         </div>
                         <div class="col-md-6">
                             <h2><?= $perdata['nama_barang'] ?></h2>
+                            <h4>Ukuran/Varian : <?= $perdata['ukuran'] ?></h4>
+                            <h4>Status Ketersediaan : <?= $perdata['pilihan']?></h4>
                             <h4>Harga : Rp <?= number_format($perdata['harga']) ?></h4>
-                            <h4>Status : <b><?= $perdata['pilihan'] ?></h4>
                             <form method="POST" action="">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control" name="jumlah">
+                                        <input type="number" min="1" class="form-control" name="jumlah" required>
                                         <div class="input-group-btn">
                                             <button class="btn btn-primary" name="beli">Beli</button>
                                         </div>
                                     </div>
+                                </div>
+                                <div>
+                                    <a href="index.php" class="btn btn-danger">Batal</a>
                                 </div>
                             </form>
 
@@ -175,7 +179,7 @@ $perdata = $data->fetch_assoc();
                                 // memasukkan ke dalam keranjang
                                 $_SESSION['keranjang'][$id_barang] = $jumlah;
 
-                                echo "<script>alert('Produk telah dimasukkan kedalam keranjang belanja');</script>";
+                                echo "<script>alert('Data pesanan berhasil dimasukkan ke keranjang!');</script>";
                                 echo "<script>location='keranjang.php';</script>";
                             }
                             ?>

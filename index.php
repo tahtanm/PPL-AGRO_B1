@@ -72,7 +72,7 @@ include('koneksi.php');
             <div class="navbar-nav ms-auto mx-lg-auto py-0">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="#" data-bs-toggle="modal" data-bs-target="#registrasi" class="nav-item nav-link">Daftar</a>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="nav-item nav-link">Login</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="nav-item nav-link">Masuk</a>
             </div>
         </div>
     </nav>
@@ -164,7 +164,7 @@ include('koneksi.php');
                             <h4 class="text-primary text-uppercase mb-4">Kantor Utama</h4>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">Jl. Pattimura 28, Blitar</p>
+                                <p class="mb-0">Jl. Pattimura 28, Kediri</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-primary me-2"></i>
@@ -209,7 +209,7 @@ include('koneksi.php');
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="staticBackdropLabel">Login</h5>
+                    <h5 class="modal-title text-primary" id="staticBackdropLabel">Masuk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                 <div class="modal-body">
@@ -240,7 +240,7 @@ include('koneksi.php');
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="staticBackdropLabel">Registrasi</h5>
+                    <h5 class="modal-title text-primary" id="staticBackdropLabel">Daftar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                  </div>
                 <div class="modal-body">

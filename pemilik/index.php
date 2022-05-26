@@ -70,7 +70,7 @@ include '../koneksi.php';
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pemilik WHERE id ='$_SESSION[id]'");
+                           $sql = $conn->query ("SELECT * FROM pemilik WHERE id_pemilik ='$_SESSION[id_pemilik]'");
                            while ($data = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $data['username'] ?></b> <?php  } ?>
@@ -79,7 +79,7 @@ include '../koneksi.php';
                      
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -112,7 +112,7 @@ include '../koneksi.php';
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="barang/produk.php">
-                        <i class="icon-briefcase"></i><span> Produk</span>
+                        <i class="icon-briefcase"></i><span> Barang</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
@@ -151,10 +151,6 @@ include '../koneksi.php';
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Harga : Rp <?= number_format($data['harga'])?>
                         <br>Status : <b><?= $data['pilihan']?></b> 
-                        <div class=" text-center">
-                           <br>
-                           <a href="barang/edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary" style="width: 80px;">EDIT</a>
-                        </div>
                       </div>
                     </div>
                   </div><?php  } ?>

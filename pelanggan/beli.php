@@ -19,5 +19,3 @@ if (isset($_SESSION['keranjang'][$id_barang])) {
 
 echo "<script>alert('Produk telah ditambahkan ke keranjang');</script>";
 echo "<script>location='keranjang.php';</script>";
-
-?>

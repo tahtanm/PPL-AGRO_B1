@@ -68,7 +68,7 @@ include('../../koneksi.php');
                         <span>
                         <?php
                            $no = 1;
-                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id ='$_SESSION[id]'");
+                           $sql = $conn->query ("SELECT * FROM pegawai WHERE id_pegawai ='$_SESSION[id_pegawai]'");
                            while ($dataa = $sql -> fetch_assoc()) {
                         ?>
                            <b><?php echo $dataa['username'] ?></b> <?php  } ?>
@@ -97,7 +97,7 @@ include('../../koneksi.php');
                 <li class="nav-level"></li>
                 <li class="active treeview">
                     <a class="waves-effect waves-dark" href="produk.php">
-                        <i class="icon-briefcase"></i><span> Produk</span>
+                        <i class="icon-briefcase"></i><span> Barang</span>
                     </a>                
                 </li>
                 <li class="nav-level"></li>
@@ -118,7 +118,7 @@ include('../../koneksi.php');
          <div class="container-fluid">
             <div class="row">
                <div class="main-header">
-                  <h4>Tambah Produk</h4>
+                  <h4>Tambah Data Barang</h4>
                </div>
             </div>
             <div class="container">
@@ -162,7 +162,7 @@ include('../../koneksi.php');
                                             <label>Status Ketersediaan</label>
                                             <select class="form-select" name="pilihan" id="pilihan">
                                                 <option value="Tersedia">Tersedia</option>
-                                                <option value="Kosong">Kosong</option>
+                                                <option value="Kosong">Pre-Order</option>
                                             </select>
                                         </div>
         								          <div>
@@ -170,8 +170,8 @@ include('../../koneksi.php');
                                             <input type="file" name="foto_barang" required="required" />
                                         </div> 
                                         <div class="col text-right">
-                                             <a href="produk.php" class="btn btn-danger">Back</a>
-                                        	   <input type="submit" class="btn btn-primary">
+                                             <a href="produk.php" class="btn btn-danger">Batal</a>
+                                        	   <input value="Simpan" type="submit" class="btn btn-primary">
                                         </div>
 
                                   </div>

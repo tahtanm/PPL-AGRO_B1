@@ -81,7 +81,7 @@ include '../koneksi.php';
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <a style = "text-decoration: none; color: black;" href="profil.php"><li><i class="icon-user"></i> Profile</li></a>
-                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Logout</li></a>
+                        <a style = "text-decoration: none; color: black;" href="../logout.php"><li><i class="icon-logout"></i> Keluar</li></a>
                      </ul>
                   </li>
                </ul>
@@ -98,6 +98,12 @@ include '../koneksi.php';
                     <a class="waves-effect waves-dark" href="index.php">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
                     </a>                
+                </li>
+                <li class="nav-level"></li>
+                    <li class="active treeview">
+                        <a class="waves-effect waves-dark" href="keranjang.php">
+                            <i class="icon-briefcase"></i><span> Keranjang</span>
+                        </a>
                 </li>
                 <li class="nav-level"></li>
                 <li class="active treeview">
@@ -139,7 +145,7 @@ include '../koneksi.php';
                                  <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Nama Lengkap</label>
                                  <div class="col-sm-10">
                                  <input type="text" class="form-control" name="nama_lengkap" required value="<?php echo $data['nama_lengkap'] ?>"/>
-                                 <input type="hidden" name="id" autofokus="" required value="<?php echo $data['id'] ?>"/>
+                                 <input type="hidden" name="id" autofokus="" required value="<?php echo $data['id_pelanggan'] ?>"/>
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -174,8 +180,8 @@ include '../koneksi.php';
                               </div>
 
                                 <div class="col text-right">
-                                    <a href="profil.php" class="btn btn-danger">Back</a>
-                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                    <a href="profil.php" class="btn btn-danger">Batal</a>
+                                    <input type="submit" value="Simpan" class="btn btn-primary">
                                 </div>
                               
                            </form>
