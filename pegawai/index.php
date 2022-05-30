@@ -138,7 +138,7 @@ include '../koneksi.php';
                         <br>Stok : <?= $data['jumlah']?> 
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Harga : Rp <?= number_format($data['harga'])?>
-                        <br>Status Ketersediaan : <?= $data['pilihan']?>
+                        <!-- <br>Status Ketersediaan : <?= $data['pilihan']?> -->
                         <div class=" text-center">
                            <br>
                            <a href="barang/edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary" style="width: 80px;">Ubah</a>

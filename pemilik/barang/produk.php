@@ -156,7 +156,7 @@ include '../../koneksi.php';
 														<th>Jumlah</th>
 														<th>Harga</th>
 														<th>Foto Barang</th>
-														<th>Status Ketersediaan</th>
+														<!-- <th>Status Ketersediaan</th> -->
 													</tr>
 
 												</thead>
@@ -173,7 +173,7 @@ include '../../koneksi.php';
                                     		<td><?php echo $data['jumlah'];?></td>
                                     		<td>Rp <?php echo number_format($data['harga'])?></td>
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
-                                    		<td><?php echo $data['pilihan'];?></td>
+                                    		<!-- <td><?php echo $data['pilihan'];?></td> -->
                                             
                                     	</tr>
                                     	<?php  } ?>

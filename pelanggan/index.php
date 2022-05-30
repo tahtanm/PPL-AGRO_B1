@@ -138,7 +138,7 @@ include '../koneksi.php';
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Stok : <?= $data['jumlah'] ?>
                         <br>Harga : Rp <?= number_format($data['harga'])?>
-                        <br>Status Ketersediaan : <b><?= $data['pilihan']?></b> 
+                        <!-- <br>Status Ketersediaan : <b><?= $data['pilihan']?></b>  -->
                         <div class=" text-center">
                            <br>
                            <a href="detail.php?id=<?= $data['id_barang'];?>" class="btn btn-primary">Detail</a>

@@ -145,7 +145,7 @@ include '../../koneksi.php';
 														<th>Jumlah</th>
 														<th>Harga</th>
 														<th>Foto Barang</th>
-														<th>Status Ketersediaan</th>
+														<!-- <th>Status Ketersediaan</th> -->
 														<th>Aksi</th>
 													</tr>
 
@@ -163,7 +163,7 @@ include '../../koneksi.php';
                                     		<td><?php echo $data['jumlah'];?></td>
                                     		<td>Rp <?php echo number_format($data['harga'])?></td>
                                           <td><img src="../../produk/<?php echo $data['foto_barang'];?>" width="60px" height="60px" ></td>
-                                    		<td><?php echo $data['pilihan'];?></td>
+                                    		<!-- <td><?php echo $data['pilihan'];?></td> -->
                                             <td>
                                              <a href="edit_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-primary">Ubah</a>
                                     			<a onclick="return confirm('Yakin ingin menghapus data?')" href="hapus_produk.php?id_barang=<?php echo $data['id_barang']; ?>" class="btn btn-danger">Hapus</a>

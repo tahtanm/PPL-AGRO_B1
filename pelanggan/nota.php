@@ -1,31 +1,13 @@
-<?php
+<?php 
 session_start();
-
 include '../koneksi.php';
 
-// ======================= ERROR ==============================
-// $id_barang = $_GET['id_barang'];
-
-// $sql = $conn->query("SELECT * FROM barang WHERE id_barang = '$id_barang' ");
-// $data = $sql->fetch_assoc();
-
-
-
-// ======================== NEW SOLVE =========================
-// mendapatkan id data dari url
-$id_barang = $_GET['id'];
-
-// query ambil data
-$data = $conn->query("SELECT * FROM barang WHERE id_barang = '$id_barang'");
-$perdata = $data->fetch_assoc();
-// ======================================================
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -63,8 +45,8 @@ $perdata = $data->fetch_assoc();
 
     <!-- Custom styles for this template -->
     <link href="../Assets/css/sidebars.css" rel="stylesheet">
-
-    <title>Detail Barang</title>
+    
+    <title>Nota</title>
 </head>
 
 <body class="sidebar-mini fixed">
@@ -108,6 +90,7 @@ $perdata = $data->fetch_assoc();
                 </div>
             </nav>
         </header>
+
         <!-- Side-Nav-->
         <aside class="main-sidebar hidden-print">
             <section class="sidebar" id="sidebar-scroll">
@@ -129,69 +112,103 @@ $perdata = $data->fetch_assoc();
                     <li class="active treeview">
                         <a class="waves-effect waves-dark" href="pemesanan/index.php">
                             <i class="icon-briefcase"></i><span> Pemesanan</span>
-                        </a>
+                        </a>                
+                    </li>
+
+
                     </li>
                 </ul>
             </section>
         </aside>
 
-        <!-- Konten -->
+        <!-- konten -->
         <div class="content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="main-header">
-                        <h4>Detail Barang</h4>
-                        <!-- <pre><?= print_r($perdata); ?></pre> -->
+                        <h4>Nota</h4>
+
+                        <?php 
+                        
+                        $ambil = $conn -> query("SELECT * FROM pembelian JOIN pelanggan 
+                        ON pembelian.id_pelanggan=pelanggan.id_pelanggan
+                        WHERE pembelian.id_pembelian='$_GET[id]'");
+
+                        $detail = $ambil->fetch_assoc();
+                        ?>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Pembelian</h5>
+                                <strong>No. Pembelian: <?= $detail['id_pembelian']?></strong> <br>
+                                Tanggal: <?= $detail['tanggal_pembelian']?> <br>
+                                
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Pelanggan</h5>
+                                <Strong><?= $detail['nama_lengkap'];?></Strong><br>
+                                <p>
+                                    <?= $detail['no_hp'];?> <br>
+                                    <?= $detail['email']?>
+                                    <?= $detail['alamat']?>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Pengiriman</h5>
+                                <strong><?= $detail['nama_kota'];?></strong> <br>
+                                <p>
+                                    Ongkos kirim: Rp. <?= number_format($detail['tarif']);?>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="../produk/<?= $perdata['foto_barang']; ?>" width="300" height="300" alt="..." class="img-responsive">
-                        </div>
-                        <div class="col-md-6">
-                            <h2><?= $perdata['nama_barang'] ?></h2>
-                            <h4>Ukuran/Varian : <?= $perdata['ukuran'] ?></h4>
-                            <h4>Stok : <?= $perdata['jumlah'] ?></h4>
-                            <!-- <h4>Status Ketersediaan : <?= $perdata['pilihan']?></h4> -->
-                            <h4>Harga : Rp <?= number_format($perdata['harga']) ?></h4>
-                            <form method="POST" action="">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="number" min="1" max="<?= $perdata['jumlah'];?>" class="form-control" name="jumlah" required>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-primary" name="beli">Beli</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="index.php" class="btn btn-danger">Batal</a>
-                                </div>
-                            </form>
+                <br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Ukuran/Varian</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1 ?>
+                        <?php $ambil = $conn->query("SELECT * FROM pembelian_produk WHERE id_pembelian = {$_GET['id']}"); ?>
+                        <?php while ($pecah = $ambil->fetch_assoc()) : ?>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $pecah['nama_barang']; ?></td>
+                                <!-- <td><?= $pecah['ukuran']?></td> -->
+                                <td>Rp. <?= number_format($pecah['harga']); ?></td>
+                                <td><?= $pecah['jumlah']; ?></td>
+                                <td>Rp. <?= number_format($pecah['subharga']); ?></td>
+                            </tr>
+                            <?php $i++ ?>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
 
-                            <?php
-                            // jika tombol beli ditekan
-                            if (isset($_POST['beli'])) {
-
-                                // mendapatkan jumlah yang di inputkan
-                                $jumlah = $_POST['jumlah'];
-
-                                // memasukkan ke dalam keranjang
-                                $_SESSION['keranjang'][$id_barang] = $jumlah;
-
-                                echo "<script>alert('Data pesanan berhasil dimasukkan ke keranjang!');</script>";
-                                echo "<script>location='keranjang.php';</script>";
-                            }
-                            ?>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="alert alert-info">
+                            <p>
+                                Silahkan melakukan pembayaran senilai Rp. <?= number_format($detail['total_pembelian']); ?> ke <br>
+                                <Strong>BANK MANDIRI 137-001088-3276 AN. Dienisa Amalia</Strong>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Required Jqurey -->
-        <script src="../Assets/plugins/Jquery/dist/jquery.min.js"></script>
+
+    <!-- Required Jqurey -->
+    <script src="../Assets/plugins/Jquery/dist/jquery.min.js"></script>
         <script src="../Assets/plugins/jquery-ui/jquery-ui.min.js"></script>
         <script src="../Assets/plugins/tether/dist/js/tether.min.js"></script>
 
@@ -238,7 +255,6 @@ $perdata = $data->fetch_assoc();
                 }
             });
         </script>
-
+    
 </body>
-
 </html>

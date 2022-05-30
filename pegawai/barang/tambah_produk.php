@@ -158,13 +158,13 @@ include('../../koneksi.php');
                                             <label>Harga</label>
                                             <input type="number" class="form-control" name="harga" required="required" />
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Status Ketersediaan</label>
                                             <select class="form-select" name="pilihan" id="pilihan">
                                                 <option value="Tersedia">Tersedia</option>
                                                 <option value="Kosong">Pre-Order</option>
                                             </select>
-                                        </div>
+                                        </div> -->
         								          <div>
                                             <label>Foto Produk</label>
                                             <input type="file" name="foto_barang" required="required" />

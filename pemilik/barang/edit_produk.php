@@ -181,13 +181,13 @@ include('../../koneksi.php');
                                  <label>Harga</label>
                                  <input type="number" class="form-control" name="harga" value="<?php echo $data['harga'];?>" required="required">
                               </div>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                  <label>Status Ketersediaan</label>
                                  <select class="form-select" name="pilihan" id="pilihan">
                                        <option value="Tersedia">Tersedia</option>
                                        <option value="Kosong">Kosong</option>
                                  </select>
-                              </div>
+                              </div> -->
         								<div class="form-group">
             								<label>Foto Barang</label>
             								<br><img src="../../produk/<?php echo $data['foto_barang'];?>" style="width:120px;">

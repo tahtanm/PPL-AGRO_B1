@@ -150,7 +150,7 @@ include '../koneksi.php';
                         <br>Stok : <?= $data['jumlah']?>
                         <br>Ukuran/Varian : <?= $data['ukuran']?> Kg
                         <br>Harga : Rp <?= number_format($data['harga'])?>
-                        <br>Status : <b><?= $data['pilihan']?></b> 
+                        <!-- <br>Status : <b><?= $data['pilihan']?></b>  -->
                       </div>
                     </div>
                   </div><?php  } ?>

@@ -156,7 +156,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                         <?php $i = 1; ?>
                         <?php $totalbelanja = 0; ?>
                         <?php foreach ($_SESSION["keranjang"] as $id_barang => $jumlah) : ?>
-                            <!-- Menampilkan Produk yang sedang diperulangkan berdasarkan id_barang -->
+                            <!-- Menampilkan barang yang sedang diperulangkan berdasarkan id_barang -->
                             <?php
 
                             $ambil = $conn->query("SELECT * FROM barang WHERE id_barang = '$id_barang'");
@@ -186,7 +186,7 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                 </table>
 
                 
-                <form action="" method="POST">
+                <form action="nota.php" method="POST">
                     <div class="row">
                         <!-- <div class="col-md-4">
                             <div class="form-group">
@@ -201,18 +201,81 @@ if (empty($_SESSION['keranjang']) or !isset($_SESSION['keranjang'])) {
                             </div>
                         </div> -->
                         <div class="col-md-4">
-                        <label for="metode_pembayaran">Metode Pembayaran</label>
-                        <select class="form-select" name="metode_pembayaran" id="metode_pembayaran">
-                            <option value="">Transfer</option>
-                            <option value="">COD</option>
-                        </select>
+                            <label for="id_ongkir">Ongkir</label>
+                            <select class="form-control" name="id_ongkir" id="id_ongkir">
+                                <option value="">Pilih Ongkos Kirim</option>
+                                <?php
+                                $ambil = $conn->query("SELECT * FROM ongkir");
+                                while ($perongkir = $ambil->fetch_assoc()) : ?>
+                                    <option value="<?= $perongkir['id_ongkir']; ?>"><?= $perongkir['nama_kota']; ?> - Rp. <?= number_format($perongkir['tarif']); ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Alamat Lengkap Pengiriman</label>
+                            <textarea name="alamat_pengiriman" id="" cols="30" rows="10" class="form-control" placeholder="Masukkan alamat lengkap pengiriman (termasuk kode pos)"></textarea>
                         </div>
                     </div> <br>
                         <button type="submit" class="btn btn-primary" name="buat_pesanan">Buat Pesanan</button>
                 </form>
 
+                <?php 
+                if (isset($_POST['checkout'])) {
+                    $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+                    $id_ongkir = $_POST['id_ongkir'];
+                    $tanggal_pembelian = date("Y-m-d");
+                    $alamat_pengiriman = $_POST['alamat_pengiriman'];
+
+                    $ambil = $conn->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
+                    $arrayongkir = $ambil->fetch_assoc();
+
+                    $nama_kota = $arrayongkir['nama_kota'];
+                    $tarif = $arrayongkir['tarif'];
+
+                    $subongkir = $jumlah * $ukuran;
+                    $total_beban += $subongkir;
+        
+                    $total_tarif = $tarif * $total_beban;
+                    $total_pembelian = $totalbelanja + $total_tarif;
+
+                    // 1. Menyimpan data ke tabel pembelian
+                    $koneksi->query("INSERT INTO pembelian (id_pelanggan, id_ongkir, tanggal_pembelian, total_pembelian, nama_kota, tarif, alamat_pengiriman)
+                    VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian', '$nama_kota', '$tarif', '$alamat_pengiriman')");
+
+                    // mendapatkan id_pembelian barusan terjadi
+                    $id_pembelian_barusan = $conn->insert_id;
+
+
+                    foreach ($_SESSION['keranjang'] as $id_barang => $jumlah) {
+
+                        // mendapatkan data produk berdasarkan id_produk
+                        $ambil = $conn->query("SELECT * FROM barang WHERE id_barang = '$id_barang'");
+                        $perbarang = $ambil->fetch_assoc();
+    
+                        $nama = $perbarang['nama_barang'];
+                        $harga = $perbarang['harga'];
+                        // $berat = $perbarang['berat_barang'];
+                        // $subberat = $perbarang['berat_barang'] * $jumlah;
+                        $subharga = $perbarang['harga'] * $jumlah;
+    
+                        $conn->query("UPDATE barang SET jumlah = jumlah - $jumlah WHERE id_barang = '$id_barang'");
+    
+                        $conn->query("INSERT INTO pembelian_barang (id_pembelian, id_barang, jumlah, nama_barang, harga, subharga)
+                        VALUES ('$id_pembelian_barusan', '$id_barang', '$jumlah', '$nama_barang', '$harga', '$subharga')");
+                    }
+
+                    // mengosongkan keranjang belanja
+                    unset($_SESSION['keranjang']); 
+
+                    // tampilan diarahkan ke halaman nota, nota dari pembelian barusan
+                    echo "<script>alert('Pembelian berhasil!');</script>";
+                    echo "<script>location='nota.php?id=$id_pembelian_barusan';</script>";
+                }
+                ?>
             </div>
         </div>
+
+
         
     </div>
 
